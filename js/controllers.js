@@ -90,17 +90,24 @@ angular.module('raw.controllers', [])
       $scope.loading = false;
 
       var num_of_items = $scope.metadata.length;
-      var text_width = 169;
+      var text_width = 163;
       var last_width = $titles.width() - text_width * (num_of_items - 1);
 
       for (var i = 0; i < num_of_items; i++) {
         if ((num_of_items - i) == 1) {
-          $titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + last_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
+          $titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + last_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Column Label'>");
         } else {
-          $titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + text_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
+          $titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + text_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Column Label'>");
         }
+        angular.element('#triggertable').trigger('click');
       }
     }
+
+  $scope.clickOnUpload = function () {
+  $timeout(function() {
+    angular.element('#myselector').trigger('click');
+  }, 100);
+};
 
     $scope.delayParse = dataService.debounce($scope.parse, 500, false);
 
@@ -137,7 +144,7 @@ angular.module('raw.controllers', [])
     $scope.codeMirrorOptions = {
       lineNumbers : true,
       lineWrapping : true,
-      placeholder : 'Paste your text or drop a file here. No data on hand? Try one of our sample datasets!'
+      placeholder : 'Paste your text or drop a file here '
     }
 
     $scope.selectChart = function(chart){

@@ -6,7 +6,7 @@
     <section class="">
         <div class="container">
 
-            <h1 id="data">Step 1: Paste data into text box below
+            <h1 id="data">Step 1: Paste your data into text box below
 <!--                 <button type="button"
                 class="choose btn btn-default"
                 ng-model="sample"
@@ -19,7 +19,7 @@
                 data-toggle="tooltip"
                 data-title="Text"
                 ng-click="dataView='text'" ng-class="{selected:dataView!='table'}"></i>
-                <i class="type fa fa-table breath-left"
+                <i id="triggertable" class="type fa fa-table breath-left"
                 data-toggle="tooltip"
                 data-title="Table"
                 ng-click="dataView='table'" ng-class="{selected:dataView=='table'}"></i>
@@ -27,6 +27,7 @@
             <span class="clearfix"></span>
         </h1>
 
+<div data-ng-show="!loading && !error && data.length" class="alert alert-success">Columns with no labels detected. Please enter in the column labels.</div>
         <div id="header-fields" style="width:100%;"></div>
         <div data-ng-show="dataView != 'table'">
             <textarea ui-codemirror="codeMirrorOptions" ng-model="text">
@@ -37,11 +38,10 @@
 
         <div>
 <!--             <div data-ng-show="!loading && !data.length && !error" class="alert"><i class="fa fa-hand-o-right breath-right"></i> Not sure how it works? <a href="http://raw.densitydesign.org/how-it-works/">Take a look at this video</a> or <a href="https://github.com/densitydesign/raw/wiki/FAQs">visit our FAQs</a></div> -->
-            <div data-ng-show="!loading && !error && data.length" class="alert alert-success"><i class="fa fa-thumbs-up breath-right"></i><strong>{{data.length}}</strong> records in your data have been successfully parsed!</div>
-            <div data-ng-show="error" class="alert alert-warning"><i class="fa fa-thumbs-down breath-right"></i><strong>Whoops!</strong> Please, check line {{error+1}}</div>
+<!--             <div data-ng-show="!loading && !error && data.length" class="alert alert-success"><i class="fa fa-thumbs-up breath-right"></i>{{data.length}} records in your data have been successfully parsed!</div>
+            <div data-ng-show="error" class="alert alert-warning"><i class="fa fa-thumbs-down breath-right"></i><strong>Whoops!</strong> Please, check line {{error+1}}</div> -->
             <div data-ng-show="loading" class="alert"><i class="fa breath-right fa-refresh fa-spin"></i>Loading your data. Please wait.</div>
         </div>
-
         </div>
 
         </section>
@@ -56,15 +56,17 @@
         <section class="metadata-div">
             <div class="container">
                 <h1 id="data" margin="40px">Step 2: Fill in the metadata for your chart</h1>
+                <h3>The metadata stores information about the graph, which is a useful for record keeping. You have the option to download the metadata separately as an HTML file, but it will also be embedded within the image file containing the graph.</h3>
+                <br />
                 <form novalidate class="metadata-form pure-form-aligned pure-form-stacked pure-form">
-                  <legend>Metadata</legend>
-                  First Name: <input type="text" ng-model="metadata.firstName" placeholder="eg. Ronald"/><br />
-                  Last Name: <input type="text" ng-model="metadata.lastName" placeholder="eg. Fisher"/><br />
-                  Title: <input type="text" ng-model="metadata.graphTitle" placeholder="eg. Petal vs. Sepal Width of Flowers"/><br />
+                  <br />
+                  Author First Name: <input type="text" ng-model="metadata.firstName" placeholder="eg. Ronald"/><br />
+                  Author Last Name: <input type="text" ng-model="metadata.lastName" placeholder="eg. Fisher"/><br />
+                  Graph Title: <input type="text" ng-model="metadata.graphTitle" placeholder="eg. Petal vs. Sepal Width of Flowers"/><br />
                   Date: <input type="text" ng-model="metadata.date" placeholder="YYYY/MM/DD"/><br />
                   Location of Study: <input type="text" ng-model="metadata.loc" placeholder="eg. New York, NY"/><br />
-                  Overview: <input type="text" class="pure-input-2-3" ng-model="metadata.overview" placeholder="eg. A multivariate data set as an example of discriminant analysis."/><br />
-                  Purpose: <input type="text" class="pure-input-2-3" ng-model="metadata.purpose" placeholder="eg. To provide a test case for many classification techniques in machine learning such as support vector machines."/><br />
+                  Overview of Graph: <input type="text" class="pure-input-2-3" ng-model="metadata.overview" placeholder="eg. A multivariate data set as an example of discriminant analysis."/><br />
+                  Purpose of Graph: <input type="text" class="pure-input-2-3" ng-model="metadata.purpose" placeholder="eg. To provide a test case for many classification techniques in machine learning such as support vector machines."/><br />
                   <button ng-click="download()" class="pure-button pure-button-primary">DOWNLOAD</button>
                   <br />
                   <br />
@@ -80,7 +82,7 @@
                 <div>
 
                     <h1 id="layout">
-                        Step 3: Choose a chart
+                        Step 3: Choose the type of graph you want in your paper
                     </h1>
 
 
@@ -147,12 +149,12 @@
                 <div id="mapping" class="row-fluid">
 
                     <div>
-                        <h3>Map your Dimensions
+                        <h1>Step 4: Map your Dimensions
                             <a data-toggle="tooltip"
                             data-title="Clear all"
                             ng-click="model.clear()" class="pull-right light"><i class="fa fa-trash-o"></i></a>
                             <span class="clearfix"></span>
-                        </h3>
+                        </h1>
                     </div>
 
 
@@ -246,9 +248,9 @@
 
     <div class="container">
 
-        <h3 id="options">
-            Customize your Visualization
-        </h3>
+        <h1 id="options">
+            Step 5 (Optional): Customize your visualization to make it appealing to everyone, not just other scientists
+        </h1>
 
         <div class="row">
 

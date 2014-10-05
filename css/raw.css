@@ -8,6 +8,11 @@ body {
   font-size: 14px;
 }
 
+h1 {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
 h2 {
   font-size: 18px;
   font-family: 'Karla', sans-serif;
@@ -26,7 +31,6 @@ h3 {
   line-height: 48px;
   margin: 0px;
   font-size: 21px;
-  margin-bottom: 30px;
   font-family: 'Karla', sans-serif;
   font-color: #F5F5F5;
 }
@@ -133,7 +137,7 @@ h4 {
 }
 
 section {
-  padding: 20px 0px;
+  padding: 20px 20px;
 }
 
 section.light {
@@ -141,11 +145,15 @@ section.light {
 }
 
 section.dark {
-  background-color: #ECECEC;
+/*  background-color: #ECECEC;*/
 }
 
 
 /* Navbar */
+
+.metadata-form {
+  font-size: 20px;
+}
 
 .navbar {
   color: #E5E5E5;
@@ -222,8 +230,9 @@ section.dark {
 }
 
 .alert-success {
-  background-color: #0dc4a3;
-  color:#fff;
+  font-size: 20px;
+/*  background-color: #0dc4a3;
+  color:#fff;*/
 }
 
 .alert-warning {
