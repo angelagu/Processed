@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="container">
-<h3 id="data">A tool for scientists to present data that is both pretty and adheres to the standards & practices of paper publication.</h3>
+<h3 id="data">A tool for scientists to present data that is both pretty and adheres to the standards & best practices of paper publication.</h3>
     </div>
 
     <section class="">
@@ -27,9 +27,10 @@
             <span class="clearfix"></span>
         </h1>
 
-<div data-ng-show="!loading && !error && data.length" class="alert alert-success">Columns with no labels detected. Please enter in the column labels.</div>
+<div data-ng-show="!loading && !error && data.length" class="alert alert-success"><strong>I see you have some columns with no labels? Please enter in the label for each column.</strong></div>
         <div id="header-fields" style="width:100%;"></div>
         <div data-ng-show="dataView != 'table'">
+        </br>
             <textarea ui-codemirror="codeMirrorOptions" ng-model="text">
             </textarea>
         </div>
@@ -42,8 +43,9 @@
             <div data-ng-show="error" class="alert alert-warning"><i class="fa fa-thumbs-down breath-right"></i><strong>Whoops!</strong> Please, check line {{error+1}}</div> -->
             <div data-ng-show="loading" class="alert"><i class="fa breath-right fa-refresh fa-spin"></i>Loading your data. Please wait.</div>
         </div>
+        <div data-ng-show="!loading && !error && data.length" class="alert alert-success">Your data is looks awesome! Next, we need to know whether the data for each column is dependent or independent, and whether the data is continuous (ie. numerical) or categorical (ie. words)</div>
         <div id="column-meta-data-options">
-    	</div>
+        </div>
         </div>
 
         </section>
@@ -62,13 +64,13 @@
                 <br />
                 <form novalidate class="metadata-form pure-form-aligned pure-form-stacked pure-form">
                   <br />
-                  Author First Name: <input type="text" ng-model="metadata.firstName" placeholder="eg. Ronald"/><br />
-                  Author Last Name: <input type="text" ng-model="metadata.lastName" placeholder="eg. Fisher"/><br />
+                  Author First Name <input type="text" ng-model="metadata.firstName" placeholder="eg. Ronald"/><br />
+                  Author Last Name <input type="text" ng-model="metadata.lastName" placeholder="eg. Fisher"/><br />
                   Graph Title: <input type="text" ng-model="metadata.graphTitle" placeholder="eg. Petal vs. Sepal Width of Flowers"/><br />
                   Date: <input type="text" ng-model="metadata.date" placeholder="YYYY/MM/DD"/><br />
-                  Location of Study: <input type="text" ng-model="metadata.loc" placeholder="eg. New York, NY"/><br />
-                  Overview of Graph: <input type="text" class="pure-input-2-3" ng-model="metadata.overview" placeholder="eg. A multivariate data set as an example of discriminant analysis."/><br />
-                  Purpose of Graph: <input type="text" class="pure-input-2-3" ng-model="metadata.purpose" placeholder="eg. To provide a test case for many classification techniques in machine learning such as support vector machines."/><br />
+                  Location of Study <input type="text" ng-model="metadata.loc" placeholder="eg. New York, NY"/><br />
+                  Overview <input type="text" class="pure-input-2-3" ng-model="metadata.overview" placeholder="eg. A multivariate data set as an example of discriminant analysis."/><br />
+                  Purpose <input type="text" class="pure-input-2-3" ng-model="metadata.purpose" placeholder="eg. To provide a test case for many classification techniques in machine learning such as support vector machines."/><br />
                   <button ng-click="download()" class="pure-button pure-button-primary">DOWNLOAD</button>
                   <br />
                   <br />
