@@ -74,32 +74,15 @@
 						</div>		
 
 						<div class="col-lg-9 col-md-9">
-
-							<div ng-repeat="category in categories">
-								<h4 class="text-muted">{{category}}</h4>
 								<div class="row" group every="3" watch="charts">
-									<div class="col-lg-4 col-md-4" ng-repeat="c in filtered = (charts | categoryFilter:category) track by $index">
+									<div class="col-lg-4 col-md-4" ng-repeat="c in filtered = (charts) track by $index">
 										<div ng-class="{selected: c == chart}" class="layout"  ng-click="selectChart(c)">
 											<div class="layout-thumb" ng-style="{'background-image':'url(' + c.thumbnail() + ')'}">
 											</div>
 											<p class="layout-inner" >
 												<span class="layout-title">{{c.title()}}</span>
 											</p>
-										</div>
-									</div>
 									
-								<div class="col-lg-4 col-md-4" ng-show="category=='Others'">
-									<a href="https://github.com/densitydesign/raw/wiki/Adding-New-Charts">
-										<div class="layout yours">
-											<div class="layout-thumb">
-												<i class="fa fa-plus-square"></i>
-											</div>
-											<p class="layout-inner" >
-												<span class="layout-title">Add your charts!</span>
-											</p>
-										</div>
-									</a>
-								</div>
 
 								</div><!-- end of group -->
 
