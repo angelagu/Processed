@@ -14,8 +14,28 @@ angular.module('raw.controllers', [])
     // };
 
     $scope.update = function() {
-      console.log($scope.metadata); 
+      console.log($scope.metadata);
       $scope.metadata_test = angular.copy($scope.metadata.firstName);
+    }
+
+    $scope.download = function() {
+      var content = "<meta "
+      + "\n"
+      + "\t" + '"firstName"=' + '"' + $scope.metadata.firstName + '"' + "\n"
+      + "\t" + '"lastName"=' + '"' + $scope.metadata.lastName + '"' + "\n"
+      + "\t" + '"title"=' + '"' + $scope.metadata.graphTitle + '"' + "\n"
+      + "\t" + '"date"=' + '"' + $scope.metadata.date + '"' + "\n"
+      + "\t" + '"location"=' + '"' + $scope.metadata.loc + '"' + "\n"
+      + "\t" + '"overview"=' + '"' + $scope.metadata.overview + '"' + "\n"
+      + "\t" + '"purpose"=' + '"' + $scope.metadata.purpose + '"' + " "
+      + "/>";
+
+      var hiddenElement = document.createElement('a');
+
+      hiddenElement.href = 'data:attachment/html,' + encodeURI(content);
+      hiddenElement.target = '_blank';
+      hiddenElement.download = 'metadata.html';
+      hiddenElement.click();
     }
 
     $scope.samples = [

@@ -55,15 +55,16 @@
             <div class="container">
                 <form novalidate class="metadata-form pure-form-aligned pure-form-stacked pure-form">
                   <legend>Metadata</legend>
-                  First Name: <input type="text" ng-model="metadata.firstName" placeholder="eg. John"/><br />
-                  Last Name: <input type="text" ng-model="metadata.lastName" placeholder="eg. Smith"/><br />
+                  First Name: <input type="text" ng-model="metadata.firstName" placeholder="eg. Ronald"/><br />
+                  Last Name: <input type="text" ng-model="metadata.lastName" placeholder="eg. Fisher"/><br />
                   Title: <input type="text" ng-model="metadata.graphTitle" placeholder="eg. Petal vs. Sepal Width of Flowers"/><br />
                   Date: <input type="text" ng-model="metadata.date" placeholder="YYYY/MM/DD"/><br />
                   Location of Study: <input type="text" ng-model="metadata.loc" placeholder="eg. New York, NY"/><br />
                   Overview: <input type="text" class="pure-input-2-3" ng-model="metadata.overview" placeholder="eg. A multivariate data set as an example of discriminant analysis."/><br />
                   Purpose: <input type="text" class="pure-input-2-3" ng-model="metadata.purpose" placeholder="eg. To provide a test case for many classification techniques in machine learning such as support vector machines."/><br />
-                  Summary of Data Points: <input type="text" class="pure-input-2-3" ng-model="metadata.sum" placeholder="eg. 50 samples, 4 features."/><br />
-                  <button ng-click="update()" class="pure-button pure-button-primary">SAVE</button>
+                  <button ng-click="download()" class="pure-button pure-button-primary">DOWNLOAD</button>
+                  <br />
+                  <br />
 
                   <pre>metadata_test = {{ metadata_test | json }}</pre>
                 </form>
