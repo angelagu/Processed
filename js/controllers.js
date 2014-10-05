@@ -31,6 +31,7 @@ angular.module('raw.controllers', [])
     $scope.metadata = [];
     $scope.error = false;
     $scope.loading = true;
+    var $titles = $('#header-fields');
 
     $scope.categories = ['Correlations', 'Distributions', 'Time Series', 'Hierarchies', 'Others'];
 
@@ -55,6 +56,18 @@ angular.module('raw.controllers', [])
       }
       if (!$scope.data.length && $scope.model) $scope.model.clear();
       $scope.loading = false;
+
+      var num_of_items = $scope.metadata.length;
+      var text_width = 169;
+      var last_width = $titles.width() - text_width * (num_of_items - 1);
+
+      for (var i = 0; i < num_of_items; i++) {
+        if ((num_of_items - i) == 1) {
+          $titles.append("<input type='text' ng-model='header" + i + "' id='header-" + i + "' style='width:" + last_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
+        } else {
+          $titles.append("<input type='text' ng-model='header" + i + "' id='header-" + i + "' style='width:" + text_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
+        }
+      }
     }
 
     $scope.delayParse = dataService.debounce($scope.parse, 500, false);
