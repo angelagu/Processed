@@ -1,5 +1,6 @@
 html,
 body {
+  padding-top: 20px;
   height: 100%;
   background-color: #FFFFFF;
   font-family: 'Karla', Arial, Helvetica, sans-serif;
@@ -27,6 +28,7 @@ h3 {
   font-size: 21px;
   margin-bottom: 30px;
   font-family: 'Karla', sans-serif;
+  font-color: #F5F5F5;
 }
 
 a {
@@ -131,7 +133,7 @@ h4 {
 }
 
 section {
-  padding: 40px 0px;
+  padding: 20px 0px;
 }
 
 section.light {
@@ -152,15 +154,13 @@ section.dark {
   z-index: 10000;
   border-radius: 0px;
   padding: 20px 0px;
-  margin-bottom: 30px;
   background-color: #fff;
 }
 
 .navbar-brand {
   color: #222;
-  font-size: 32px;
+  font-size: 50px;
   font-weight: 900;
-  text-transform: uppercase;
   font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 

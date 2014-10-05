@@ -1,16 +1,18 @@
 <div class="wrapper">
+    <div class="container">
+<h3 id="data">A tool for scientists to present data that is both pretty and adheres to the standards & practices of paper publication.</h3>
+    </div>
 
     <section class="">
-
         <div class="container">
 
-            <h3 id="data">Insert your data
-                <button type="button"
+            <h1 id="data">Step 1: Paste data into text box below
+<!--                 <button type="button"
                 class="choose btn btn-default"
                 ng-model="sample"
                 placeholder="or choose one of our samples"
                 ng-options="s as s.title for s in samples" bs-select>
-            </button>
+            </button> -->
 
             <span class="list-type pull-right">
                 <i class="type fa fa-align-left breath-left"
@@ -23,7 +25,7 @@
                 ng-click="dataView='table'" ng-class="{selected:dataView=='table'}"></i>
             </span>
             <span class="clearfix"></span>
-        </h3>
+        </h1>
 
         <div id="header-fields" style="width:100%;"></div>
         <div data-ng-show="dataView != 'table'">
@@ -33,12 +35,12 @@
 
         <div raw-table class="data-table" data-ng-show="dataView == 'table'"></div>
 
-        <div>
+<!--         <div>
             <div data-ng-show="!loading && !data.length && !error" class="alert"><i class="fa fa-hand-o-right breath-right"></i> Not sure how it works? <a href="http://raw.densitydesign.org/how-it-works/">Take a look at this video</a> or <a href="https://github.com/densitydesign/raw/wiki/FAQs">visit our FAQs</a></div>
             <div data-ng-show="!loading && !error && data.length" class="alert alert-success"><i class="fa fa-thumbs-up breath-right"></i><strong>{{data.length}}</strong> records in your data have been successfully parsed!</div>
             <div data-ng-show="error" class="alert alert-warning"><i class="fa fa-thumbs-down breath-right"></i><strong>Whoops!</strong> Please, check line {{error+1}}</div>
             <div data-ng-show="loading" class="alert"><i class="fa breath-right fa-refresh fa-spin"></i>Loading your data. Please wait.</div>
-        </div>
+        </div> -->
 
         </div>
 
@@ -51,9 +53,9 @@
             </div>
 
         </section>
-
         <section class="metadata-div">
             <div class="container">
+                <h1 id="data" margin="40px">Step 2: Fill in the metadata for your chart</h1>
                 <form novalidate class="metadata-form pure-form-aligned pure-form-stacked pure-form">
                   <legend>Metadata</legend>
                   First Name: <input type="text" ng-model="metadata.firstName" placeholder="eg. Ronald"/><br />
@@ -67,7 +69,6 @@
                   <br />
                   <br />
 
-                  <pre>metadata_test = {{ metadata_test | json }}</pre>
                 </form>
             </div>
         </section>
@@ -78,9 +79,9 @@
 
                 <div>
 
-                    <h3 id="layout">
-                        Choose a Chart
-                    </h3>
+                    <h1 id="layout">
+                        Step 3: Choose a chart
+                    </h1>
 
 
                     <div class="row">
