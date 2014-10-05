@@ -63,7 +63,8 @@ angular.module('raw.controllers', [])
     $scope.metadata = [];
     $scope.error = false;
     $scope.loading = true;
-    var $titles = $('#header-fields');
+    $scope.titles = $('#header-fields');
+    $scope.metaDataOptions = $('#column-meta-data-options')
 
     $scope.categories = ['Correlations', 'Distributions', 'Time Series', 'Hierarchies', 'Others'];
 
@@ -90,14 +91,18 @@ angular.module('raw.controllers', [])
       $scope.loading = false;
 
       var num_of_items = $scope.metadata.length;
-      var text_width = 163;
-      var last_width = $titles.width() - text_width * (num_of_items - 1);
+      var text_width = 169;
+      var last_width = $scope.titles.width() - text_width * (num_of_items - 1);
 
       for (var i = 0; i < num_of_items; i++) {
         if ((num_of_items - i) == 1) {
-          $titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + last_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Column Label'>");
+          $scope.titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + last_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
+          $scope.metaDataOptions.append("<div style='display:inline-block;width:" + last_width + "px;'><select style='width:100%;'><option>Independent</option><option>Dependent</option></select>\
+            <select style='width:100%;'><option value='' disabled selected>Select your option</option><option>Continuous</option><option>Categorical</option></select><div>");
         } else {
-          $titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + text_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Column Label'>");
+          $scope.titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + text_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
+          $scope.metaDataOptions.append("<div style='display:inline-block;width:" + text_width + "px;'><select style='width:100%;'><option>Independent</option><option>Dependent</option></select>\
+            <select style='width:100%;'><option value='' disabled selected>Select your option</option><option>Continuous</option><option>Categorical</option></select><div>");
         }
         angular.element('#triggertable').trigger('click');
       }
