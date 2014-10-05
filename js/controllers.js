@@ -63,9 +63,9 @@ angular.module('raw.controllers', [])
 
       for (var i = 0; i < num_of_items; i++) {
         if ((num_of_items - i) == 1) {
-          $titles.append("<input type='text' ng-model='header" + i + "' id='header-" + i + "' style='width:" + last_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
+          $titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + last_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
         } else {
-          $titles.append("<input type='text' ng-model='header" + i + "' id='header-" + i + "' style='width:" + text_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
+          $titles.append("<input type='text' ng-model='column" + i + "' id='header-" + i + "' style='width:" + text_width + "px;border:1px solid #ccc;margin-bottom:5px;' placeholder='Enter column Title'>");
         }
       }
     }
