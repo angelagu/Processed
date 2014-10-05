@@ -6,12 +6,24 @@ angular.module('raw.controllers', [])
 
   .controller('RawCtrl', function ($scope, dataService) {
 
+    $scope.metadata_test = {};
+    $scope.metadata = {}
+
+    // $scope.updateMetadata = function(metadata) {
+    //   $scope.metadata = metadata;
+    // };
+
+    $scope.update = function() {
+      console.log($scope.metadata); 
+      $scope.metadata_test = angular.copy($scope.metadata.firstName);
+    }
+
     $scope.samples = [
       { title : 'Cars (multivariate)', url : 'data/multivariate.csv' },
       { title : 'Movies (dispersions)', url : 'data/dispersions.csv' },
       { title : 'Music (flows)', url : 'data/flows.csv' },
       { title : 'Cocktails (correlations)', url : 'data/correlations.csv' }
-    ]
+    ];
 
     $scope.$watch('sample', function (sample){
       if (!sample) return;
