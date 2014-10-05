@@ -1,21 +1,28 @@
-<p align="center"><img src="http://raw.densitydesign.org/wp-content/uploads/2014/04/header.png"></p>
+# Processed
+## How can we make data visualizations for scientists better?
+* scientists struggle w/data management & designing visualizations
+* clearer, more consistent figures in science articles
+* maintaining good datasets for easy reuse
+* adding context and metadata to autogenerate data reports
 
+## Design
+* combine input that encourages best practices for data management as well as better outputs than MS Excel default options
+* preserve data and metadata info when generating images
 
-##About
+## Tools used
+* d3.js, Raw, KnitR
 
-**RAW** is an open web tool developed at the [DensityDesign Research Lab](http://www.densitydesign.org) (Politecnico di Milano) to create custom vector-based visualizations on top of the amazing [d3.js](https://github.com/mbostock/d3) library by [Mike Bostock](http://bost.ocks.org/mike/).
-Primarily conceived as a tool for designers and vis geeks, RAW aims at providing a missing link  between spreadsheet applications (e.g. Microsoft Excel, Apple Numbers, Google Docs, OpenRefine, …) and vector graphics editors (e.g. Adobe Illustrator, Inkscape, …).
-
-RAW works with [delimiter-separated values](http://en.wikipedia.org/wiki/Delimiter-separated_values) (i.e. csv and tsv files) as well as with copied-and-pasted texts from other applications (e.g. Microsoft Excel, TextWrangler, TextEdit, …). Based on the [svg](http://en.wikipedia.org/wiki/Svg) format, visualizations can be easily edited with vector graphics applications for further refinements, or directly embedded into web pages.
-
-Knowing the need of working with sensitive information, the data uploaded to RAW is processed only by the web browser: **no server-side operations or storages are performed** and no one will see, touch or copy your data!
-
-RAW is also highly customizable and extensible, accepting new custom layouts defined by users. For more information about how to add or edit layouts, see the [Developer Guide](https://github.com/densitydesign/raw/wiki/Developer-Guide).
-
-- App page: [app.raw.densitydesign.org](http://app.raw.densitydesign.org)
-- Project official page: [raw.densitydesign.org](http://raw.densitydesign.org)
-- Documentation: [github.com/densitydesign/raw/wiki](https://github.com/densitydesign/raw/wiki)
-- Google group: [groups.google.com/forum/#!forum/densitydesign-raw](https://groups.google.com/forum/#!forum/densitydesign-raw)
+## Steps
+1. Easy upload *.csv file
+2. Automatic parsing
+3. Prompt for names of variables as well as types
+  * continuous or categorical
+  * independent or dependent
+  * unit of measurement
+4. Add additional dataset information (author, date, etc)
+5. Select type of graph: line, bar, scatter
+6. Drag variables to x, y, or color
+7. Output to image file and/or print report
 
 
 ##Usage
@@ -34,13 +41,13 @@ If you want to run your instance of RAW locally on your machine, be sure you hav
 Clone RAW from the command line:
 
 ``` sh
-$ git clone git://github.com/densitydesign/raw.git
+$ git clone https://github.com/angelagu/processed
 ```
 
-browse to RAW root folder:
+browse to PROCESSED root folder:
 
 ``` sh
-$ cd raw
+$ cd processed
 ```
 
 install client-side dependencies:
@@ -48,8 +55,8 @@ install client-side dependencies:
 ``` sh
 $ bower install
 ```
-	
-You can now run RAW from your local web server. For example, you can run Python's built-in server:
+  
+You can now run PROCESSED from your local web server. For example, you can run Python's built-in server:
 
 ``` sh
 $ python -m SimpleHTTPServer 4000
@@ -65,6 +72,8 @@ Once this is running, go to [http://localhost:4000/](http://localhost:4000/).
 
 Troubles with the installation? Maybe a look at the [issues](https://github.com/densitydesign/raw/issues) page can solve your problem, otherwise join the [Google group](https://groups.google.com/forum/#!forum/densitydesign-raw).
 
+
+## RAW DOCUMENTATION
 
 ##Documentation and Support
 
@@ -123,24 +132,24 @@ Want to contribute to RAW's development? You are more than welcome! Start by for
 
 RAW is provided under the [LGPL (Lesser General Public License)](https://github.com/densitydesign/raw/blob/master/COPYING.LESSER) v.3:
 
-	Copyright (c), 2013-2014 DensityDesign Lab, Giorgio Caviglia, Michele Mauri,
-	Giorgio Uboldi, Matteo Azzi
-	
-	<info@densitydesign.org>  
-	<giorgio.caviglia@gmail.com>  
-	<michele.mauri@polimi.it>  
-	<giorgio.uboldi@polimi.it>  
-	<matteo.azzi@polimi.it>  
-	 
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU Lesser General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
-	 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-	GNU Lesser General Public License for more details.
-	 
-	You should have received a copy of the GNU Lesser General Public License
-	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  Copyright (c), 2013-2014 DensityDesign Lab, Giorgio Caviglia, Michele Mauri,
+  Giorgio Uboldi, Matteo Azzi
+  
+  <info@densitydesign.org>  
+  <giorgio.caviglia@gmail.com>  
+  <michele.mauri@polimi.it>  
+  <giorgio.uboldi@polimi.it>  
+  <matteo.azzi@polimi.it>  
+   
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+   
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU Lesser General Public License for more details.
+   
+  You should have received a copy of the GNU Lesser General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
